@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1f0ef036-ce23-4c0c-b9a1-35be8272248e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:54034/PrintPaymentService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PrintPaymentService.xsd" MetadataType="Schema" ID="c520e34d-beba-45af-a2c7-db2e2d18fbf9" SourceId="1" SourceUrl="http://localhost:54034/PrintPaymentService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PrintPaymentService.disco" MetadataType="Disco" ID="53398900-d27f-464e-9973-da0fc9a2ce44" SourceId="1" SourceUrl="http://localhost:54034/PrintPaymentService.svc?disco" />
+    <MetadataFile FileName="PrintPaymentService1.xsd" MetadataType="Schema" ID="cb48af7c-105b-46be-8601-fe0dd080c094" SourceId="1" SourceUrl="http://localhost:54034/PrintPaymentService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PrintPaymentService.wsdl" MetadataType="Wsdl" ID="b4729858-dce4-46df-811f-e19661a92f41" SourceId="1" SourceUrl="http://localhost:54034/PrintPaymentService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
