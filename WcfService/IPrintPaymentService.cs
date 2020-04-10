@@ -1,9 +1,11 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Configuration;
 
 namespace WcfService
 {
@@ -12,6 +14,12 @@ namespace WcfService
     public interface IPrintPaymentService
     {
         [OperationContract]
-        string SayHello();
+        int AddTransactionByStudentId(int id, string source, double amount);
+
+        [OperationContract]
+        int AddTransactionByStudentUId(int uid, string source, double amount);
+
+        [OperationContract]
+        int AddTransactionByStudentCardId(int cardid, string source, double amount);
     }
 }
