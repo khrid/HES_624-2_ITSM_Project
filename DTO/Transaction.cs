@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace DTO
 {
-    class Transaction
+    public class Transaction
     {
-        int id { get; set; }
-        string source { get; set; }
-        DateTime timestamp { get; set; }
-        double amount { get; set; }
-        Student student { get; set; }
+        public Transaction() { }
+
+        public int id { get; set; }
+        public string source { get; set; }
+        public double amount { get; set; }
+        public int fk_student { get; set; }
+        public DateTime created_at { get; set; }
     }
 }

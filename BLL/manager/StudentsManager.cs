@@ -1,35 +1,69 @@
-﻿using DAL;
-using DTO;
+﻿using DTO;
+using DAL;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BLL
 {
     public class StudentsManager : IStudentsManager
     {
-        private IStudentsDB StudentsDB { get; } 
+        private IStudentsDB StudentsDB { get; }
 
         public StudentsManager(string connectionString)
         {
             StudentsDB = new StudentsDB(connectionString);
         }
 
-        public List<Student> GetAllStudents()
+        public Student GetStudentById(int id)
         {
-            return StudentsDB.GetAllStudents();
+            return StudentsDB.GetStudentById(id);
         }
 
-        public Student GetStudent(int id)
+        public List<Student> GetStudentsByUId(int uid)
         {
-            Student student = null;
-            List<Student> allStudents = GetAllStudents();
-            foreach (var s in allStudents)
+            return StudentsDB.GetStudentsByUId(uid);
+        }
+
+        public List<Student> GetStudentsByCardId(int cardid)
+        {
+            return StudentsDB.GetStudentsByCardId(cardid);
+        }
+
+        public int GetStudentIdByUId(int uid)
+        {
+            List<Student> students = GetStudentsByUId(uid);
+            if (students == null)
             {
-                if(s.id == id)
-                {
-                    student = s;
-                }
+                throw new System.ApplicationException("No record found in table 'Students' with 'uid' " + uid + ".");
             }
-            return student;
+            else if (students.Count > 1)
+            {
+                throw new System.ApplicationException("Column 'uid' in table 'Students' contains a duplicate value '" + uid + "'. " + students.Count + " values found.");
+            }
+            else
+            {
+                return students[0].id;
+            }
+        }
+
+        public int GetStudentIdByCardId(int cardid)
+        {
+            List<Student> students = GetStudentsByCardId(cardid);
+            if (students == null)
+            {
+                throw new System.ApplicationException("No record found in table 'Students' with 'cardid' " + cardid + ".");
+            }
+            else if (students.Count > 1)
+            {
+                throw new System.ApplicationException("Column 'cardid' in table 'Students' contains a duplicate value '" + cardid + "'. " + students.Count + " values found.");
+            }
+            else
+            {
+                return students[0].id;
+            }
         }
     }
 }

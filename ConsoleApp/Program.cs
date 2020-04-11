@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,18 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             PrintPaymentServiceReference.PrintPaymentServiceClient client = new PrintPaymentServiceReference.PrintPaymentServiceClient();
-            Console.WriteLine(client.SayHello(2));
+
+            //int id = 2;
+            //Console.WriteLine(id + " " + client.GetStudentById(id));
+
+
+            //Gérer id inexistant
+            //Console.WriteLine("Transaction successfully inserted. id -> " + client.AddTransactionByStudentId(3,"payment",5.65));
+            //Console.WriteLine("Transaction successfully inserted. id -> " + client.AddTransactionByStudentUId(6577, "payment", 5.65));
+            Console.WriteLine("Transaction successfully inserted. id -> " + client.AddTransactionByStudentCardId(2565, "payment", 3.4));
             Console.ReadLine();
+
         }
+
     }
 }
