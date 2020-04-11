@@ -6,7 +6,6 @@ using System.ServiceModel;
 using System.Text;
 using System.Configuration;
 using BLL;
-using DTO;
 
 namespace WcfService
 {
@@ -19,7 +18,7 @@ namespace WcfService
 
         private ITransactionsManager TransactionsManager = new TransactionsManager(connectionString);
 
-        public int AddTransactionByStudentId(int id, string source, double amount)
+        /*public int AddTransactionByStudentId(int id, string source, double amount)
         {
             return TransactionsManager.AddTransactionByStudentId(id, source, amount).id;
         }
@@ -33,6 +32,26 @@ namespace WcfService
         public int AddTransactionByStudentCardId(int cardid, string source, double amount)
         {
             return TransactionsManager.AddTransactionByStudentCardId(cardid, source, amount).id;
+        }*/
+
+        public int TransactionPayOnline(string username, double amount)
+        {
+            return TransactionsManager.AddTransactionByUsername(username, "PayOnline", amount);
+        }
+
+        public int TransactionAddQuotasPrintSystem(string username, int quota)
+        {
+            return TransactionsManager.AddQuotaByUsername(username, "PrintSystem", quota);
+        }
+
+        public int TransactionFaculties(string username, double amount)
+        {
+            return TransactionsManager.AddTransactionByUsername(username, "Faculties", amount);
+        }
+
+        public int TransactionPointOfSale(int uid, double amount)
+        {
+            return TransactionsManager.AddTransactionByStudentUId(uid, "PointOfSale", amount);
         }
     }
 }

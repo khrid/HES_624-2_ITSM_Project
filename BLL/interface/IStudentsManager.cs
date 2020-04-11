@@ -12,13 +12,15 @@ namespace BLL
 {
         Student GetStudentById(int id);
 
-        List<Student> GetStudentsByUId(int uid);
+        //List<Student> GetStudentsByUId(int uid);
         
-        List<Student> GetStudentsByCardId(int cardid);
+        //List<Student> GetStudentsByCardId(int cardid);
         
         int GetStudentIdByUId(int uid);
         
         int GetStudentIdByCardId(int cardid);
+
+        int GetStudentByUsername(string username);
 
     }
 }

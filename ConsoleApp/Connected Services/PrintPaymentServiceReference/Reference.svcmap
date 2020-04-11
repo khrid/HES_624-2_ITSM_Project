@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="dc097448-3f29-47fe-af3c-4bb534c991db" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7164400a-748b-45be-9c9c-aefd09c1de3c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:54034/PrintPaymentService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PrintPaymentService.xsd" MetadataType="Schema" ID="74ced09a-ab7d-4775-a141-dab31ad050fd" SourceId="1" SourceUrl="http://localhost:54034/PrintPaymentService.svc?xsd=xsd0" />
-    <MetadataFile FileName="PrintPaymentService.disco" MetadataType="Disco" ID="242da150-dfd5-4001-9253-d79cd8b616f2" SourceId="1" SourceUrl="http://localhost:54034/PrintPaymentService.svc?disco" />
-    <MetadataFile FileName="PrintPaymentService1.xsd" MetadataType="Schema" ID="2056369b-62dd-4b89-9f8b-4b0def1254e1" SourceId="1" SourceUrl="http://localhost:54034/PrintPaymentService.svc?xsd=xsd1" />
-    <MetadataFile FileName="PrintPaymentService.wsdl" MetadataType="Wsdl" ID="0175496f-8ff0-4643-b5d8-8bf20588c2b5" SourceId="1" SourceUrl="http://localhost:54034/PrintPaymentService.svc?wsdl" />
+    <MetadataFile FileName="PrintPaymentService.xsd" MetadataType="Schema" ID="813e9805-65b1-47ce-9f6d-673445b7be74" SourceId="1" SourceUrl="http://localhost:54034/PrintPaymentService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PrintPaymentService.disco" MetadataType="Disco" ID="f86edeac-4409-45a6-9eb8-1c73f3852d86" SourceId="1" SourceUrl="http://localhost:54034/PrintPaymentService.svc?disco" />
+    <MetadataFile FileName="PrintPaymentService1.xsd" MetadataType="Schema" ID="bc55f93a-9f1d-42b8-b40b-51f3bb8245bf" SourceId="1" SourceUrl="http://localhost:54034/PrintPaymentService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PrintPaymentService.wsdl" MetadataType="Wsdl" ID="cb584bec-0a1d-4de7-b25e-500a767298ae" SourceId="1" SourceUrl="http://localhost:54034/PrintPaymentService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

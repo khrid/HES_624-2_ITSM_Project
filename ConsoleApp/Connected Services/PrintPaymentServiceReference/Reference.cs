@@ -15,23 +15,29 @@ namespace ConsoleApp.PrintPaymentServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PrintPaymentServiceReference.IPrintPaymentService")]
     public interface IPrintPaymentService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentId", ReplyAction="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentIdResponse")]
-        int AddTransactionByStudentId(int id, string source, double amount);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/TransactionPayOnline", ReplyAction="http://tempuri.org/IPrintPaymentService/TransactionPayOnlineResponse")]
+        int TransactionPayOnline(string username, double amount);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentId", ReplyAction="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentIdResponse")]
-        System.Threading.Tasks.Task<int> AddTransactionByStudentIdAsync(int id, string source, double amount);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/TransactionPayOnline", ReplyAction="http://tempuri.org/IPrintPaymentService/TransactionPayOnlineResponse")]
+        System.Threading.Tasks.Task<int> TransactionPayOnlineAsync(string username, double amount);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentUId", ReplyAction="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentUIdResponse")]
-        int AddTransactionByStudentUId(int uid, string source, double amount);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/TransactionAddQuotasPrintSystem", ReplyAction="http://tempuri.org/IPrintPaymentService/TransactionAddQuotasPrintSystemResponse")]
+        int TransactionAddQuotasPrintSystem(string username, int quota);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentUId", ReplyAction="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentUIdResponse")]
-        System.Threading.Tasks.Task<int> AddTransactionByStudentUIdAsync(int uid, string source, double amount);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/TransactionAddQuotasPrintSystem", ReplyAction="http://tempuri.org/IPrintPaymentService/TransactionAddQuotasPrintSystemResponse")]
+        System.Threading.Tasks.Task<int> TransactionAddQuotasPrintSystemAsync(string username, int quota);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentCardId", ReplyAction="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentCardIdResponse")]
-        int AddTransactionByStudentCardId(int cardid, string source, double amount);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/TransactionFaculties", ReplyAction="http://tempuri.org/IPrintPaymentService/TransactionFacultiesResponse")]
+        int TransactionFaculties(string username, double amount);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentCardId", ReplyAction="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentCardIdResponse")]
-        System.Threading.Tasks.Task<int> AddTransactionByStudentCardIdAsync(int cardid, string source, double amount);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/TransactionFaculties", ReplyAction="http://tempuri.org/IPrintPaymentService/TransactionFacultiesResponse")]
+        System.Threading.Tasks.Task<int> TransactionFacultiesAsync(string username, double amount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/TransactionPointOfSale", ReplyAction="http://tempuri.org/IPrintPaymentService/TransactionPointOfSaleResponse")]
+        int TransactionPointOfSale(int uid, double amount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/TransactionPointOfSale", ReplyAction="http://tempuri.org/IPrintPaymentService/TransactionPointOfSaleResponse")]
+        System.Threading.Tasks.Task<int> TransactionPointOfSaleAsync(int uid, double amount);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -61,28 +67,36 @@ namespace ConsoleApp.PrintPaymentServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public int AddTransactionByStudentId(int id, string source, double amount) {
-            return base.Channel.AddTransactionByStudentId(id, source, amount);
+        public int TransactionPayOnline(string username, double amount) {
+            return base.Channel.TransactionPayOnline(username, amount);
         }
         
-        public System.Threading.Tasks.Task<int> AddTransactionByStudentIdAsync(int id, string source, double amount) {
-            return base.Channel.AddTransactionByStudentIdAsync(id, source, amount);
+        public System.Threading.Tasks.Task<int> TransactionPayOnlineAsync(string username, double amount) {
+            return base.Channel.TransactionPayOnlineAsync(username, amount);
         }
         
-        public int AddTransactionByStudentUId(int uid, string source, double amount) {
-            return base.Channel.AddTransactionByStudentUId(uid, source, amount);
+        public int TransactionAddQuotasPrintSystem(string username, int quota) {
+            return base.Channel.TransactionAddQuotasPrintSystem(username, quota);
         }
         
-        public System.Threading.Tasks.Task<int> AddTransactionByStudentUIdAsync(int uid, string source, double amount) {
-            return base.Channel.AddTransactionByStudentUIdAsync(uid, source, amount);
+        public System.Threading.Tasks.Task<int> TransactionAddQuotasPrintSystemAsync(string username, int quota) {
+            return base.Channel.TransactionAddQuotasPrintSystemAsync(username, quota);
         }
         
-        public int AddTransactionByStudentCardId(int cardid, string source, double amount) {
-            return base.Channel.AddTransactionByStudentCardId(cardid, source, amount);
+        public int TransactionFaculties(string username, double amount) {
+            return base.Channel.TransactionFaculties(username, amount);
         }
         
-        public System.Threading.Tasks.Task<int> AddTransactionByStudentCardIdAsync(int cardid, string source, double amount) {
-            return base.Channel.AddTransactionByStudentCardIdAsync(cardid, source, amount);
+        public System.Threading.Tasks.Task<int> TransactionFacultiesAsync(string username, double amount) {
+            return base.Channel.TransactionFacultiesAsync(username, amount);
+        }
+        
+        public int TransactionPointOfSale(int uid, double amount) {
+            return base.Channel.TransactionPointOfSale(uid, amount);
+        }
+        
+        public System.Threading.Tasks.Task<int> TransactionPointOfSaleAsync(int uid, double amount) {
+            return base.Channel.TransactionPointOfSaleAsync(uid, amount);
         }
     }
 }

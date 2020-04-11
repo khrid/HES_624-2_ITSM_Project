@@ -9,12 +9,15 @@ namespace BLL
 {
     public interface ITransactionsManager
 {
-        Transaction AddTransactionByStudentId(int id, string source, double amount);
+        int AddTransactionByStudentId(int id, string source, double amount);
 
-        Transaction AddTransactionByStudentUId(int uid, string source, double amount);
+        int AddTransactionByStudentUId(int uid, string source, double amount);
 
-        Transaction AddTransactionByStudentCardId(int cardid, string source, double amount);
+        int AddTransactionByStudentCardId(int cardid, string source, double amount);
 
-        Transaction CreateTransactionByStudentId(int id, string source, double amount);
+        int AddTransactionByUsername(string username, string source, double amount);
+
+        int AddQuotaByUsername(string username, string source, int quota);
+
     }
 }

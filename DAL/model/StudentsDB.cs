@@ -147,5 +147,48 @@ namespace DAL
 
             return results;
         }
+
+        public List<Student> GetStudentsByUsername(string username)
+        {
+            List<Student> results = null;
+
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(connectionString))
+                {
+                    string query = "Select * from Students where username=@username";
+                    SqlCommand cmd = new SqlCommand(query, cn);
+                    cmd.Parameters.AddWithValue("@username", username);
+
+                    cn.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            if (results == null)
+                                results = new List<Student>();
+
+                            Student student = new Student();
+
+                            student.id = (int)dr["id"];
+                            student.firstname = (string)dr["firstname"];
+                            student.lastname = (string)dr["lastname"];
+                            student.username = (string)dr["username"];
+                            student.uid = (int)dr["uid"];
+                            student.cardid = (int)dr["cardid"];
+
+                            results.Add(student);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return results;
+        }
     }
 }

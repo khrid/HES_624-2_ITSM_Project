@@ -22,12 +22,17 @@ namespace BLL
             return StudentsDB.GetStudentById(id);
         }
 
-        public List<Student> GetStudentsByUId(int uid)
+        private List<Student> GetStudentsByUsername(string username)
+        {
+            return StudentsDB.GetStudentsByUsername(username);
+        }
+
+        private List<Student> GetStudentsByUId(int uid)
         {
             return StudentsDB.GetStudentsByUId(uid);
         }
 
-        public List<Student> GetStudentsByCardId(int cardid)
+        private List<Student> GetStudentsByCardId(int cardid)
         {
             return StudentsDB.GetStudentsByCardId(cardid);
         }
@@ -59,6 +64,22 @@ namespace BLL
             else if (students.Count > 1)
             {
                 throw new System.ApplicationException("Column 'cardid' in table 'Students' contains a duplicate value '" + cardid + "'. " + students.Count + " values found.");
+            }
+            else
+            {
+                return students[0].id;
+            }
+        }
+        public int GetStudentByUsername(string username)
+        {
+            List<Student> students = GetStudentsByUsername(username);
+            if (students == null)
+            {
+                throw new System.ApplicationException("No record found in table 'Students' with 'username' " + username + ".");
+            }
+            else if (students.Count > 1)
+            {
+                throw new System.ApplicationException("Column 'cardid' in table 'Students' contains a duplicate value '" + username + "'. " + students.Count + " values found.");
             }
             else
             {

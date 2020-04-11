@@ -61,7 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="interface\IStudentsDB.cs" />
+    <Compile Include="interface\ITransactionsDB.cs" />
     <Compile Include="model\StudentsDB.cs" />
+    <Compile Include="model\TransactionsDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -13,6 +13,7 @@ namespace WcfService
     [ServiceContract]
     public interface IPrintPaymentService
     {
+        /*
         [OperationContract]
         int AddTransactionByStudentId(int id, string source, double amount);
 
@@ -20,6 +21,23 @@ namespace WcfService
         int AddTransactionByStudentUId(int uid, string source, double amount);
 
         [OperationContract]
-        int AddTransactionByStudentCardId(int cardid, string source, double amount);
+        int AddTransactionByStudentCardId(int cardid, string source, double amount);*/
+
+
+        // Flèche bleue - "PayOnline // Transfer amount of money"
+        [OperationContract]
+        int TransactionPayOnline(string username, double amount); // TODO à clarifier si c'est OK avec dul, car pas précisé dans le schéma
+
+        // Flèche bleue - "Print System // Add quotas (nb A4) through command line"
+        [OperationContract]
+        int TransactionAddQuotasPrintSystem(string username, int quota);
+
+        // Flèche verte - "Faculties // Transfer amount on money"
+        [OperationContract]
+        int TransactionFaculties(string username, double amount);
+
+        // Flèche rouge - "Payment database // Transfer amount of money through Connector after POS transaction"
+        [OperationContract]
+        int TransactionPointOfSale(int uid, double amount);
     }
 }

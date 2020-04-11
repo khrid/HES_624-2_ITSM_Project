@@ -10,6 +10,7 @@ namespace BLL
 {
     public class TransactionsManager : ITransactionsManager
     {
+        const double PRICE_PER_PAGE_BW = 0.80;
         private ITransactionsDB TransactionsDB { get; }
         private IStudentsManager StudentsManager { get; }
 
@@ -19,30 +20,74 @@ namespace BLL
             StudentsManager = new StudentsManager(connectionString);
         }
 
-        public Transaction AddTransactionByStudentId(int id, string source, double amount)
+        public int AddTransactionByStudentId(int id, string source, double amount)
         {
-            return TransactionsDB.AddTransaction(CreateTransactionByStudentId(id, source, amount));
+            return TransactionsDB.AddTransaction(CreateTransactionByStudentId(id, source, amount)).id;
         }
 
-        public Transaction AddTransactionByStudentUId(int uid, string source, double amount)
+        public int AddTransactionByStudentUId(int uid, string source, double amount)
         {
-            int id = StudentsManager.GetStudentIdByUId(uid);
-            return TransactionsDB.AddTransaction(CreateTransactionByStudentId(id, source, amount));
+            int studentId;
+            try
+            {
+                studentId = StudentsManager.GetStudentIdByUId(uid);
+            }
+            catch (ApplicationException ex)
+            {
+                return -1;
+            }
+            return TransactionsDB.AddTransaction(CreateTransactionByStudentId(studentId, source, amount)).id;
         }
 
-        public Transaction AddTransactionByStudentCardId(int cardid, string source, double amount)
+        public int AddTransactionByStudentCardId(int cardid, string source, double amount)
         {
-            int id = StudentsManager.GetStudentIdByCardId(cardid);
-            return TransactionsDB.AddTransaction(CreateTransactionByStudentId(id, source, amount));
+            int studentId;
+            try
+            {
+                studentId = StudentsManager.GetStudentIdByCardId(cardid);
+            }
+            catch (ApplicationException ex)
+            {
+                return -1;
+            }
+            return TransactionsDB.AddTransaction(CreateTransactionByStudentId(studentId, source, amount)).id;
         }
 
-        public Transaction CreateTransactionByStudentId(int id, string source, double amount)
+        private Transaction CreateTransactionByStudentId(int id, string source, double amount)
         {
             Transaction transaction = new Transaction();
             transaction.fk_student = id;
             transaction.source = source;
             transaction.amount = amount;
             return transaction;
+        }
+
+        public int AddTransactionByUsername(string username, string source, double amount)
+        {
+            int studentId;
+            try
+            {
+                studentId = StudentsManager.GetStudentByUsername(username);
+            }
+            catch (ApplicationException ex)
+            {
+                return -1;
+            }
+            return TransactionsDB.AddTransaction(CreateTransactionByStudentId(studentId, source, amount)).id;
+        }
+
+        public int AddQuotaByUsername(string username, string source, int quota)
+        {
+            int studentId;
+            try
+            {
+                studentId = StudentsManager.GetStudentByUsername(username);
+            }
+            catch (ApplicationException ex)
+            {
+                return -1;
+            }
+            return TransactionsDB.AddTransaction(CreateTransactionByStudentId(studentId, source, quota * PRICE_PER_PAGE_BW)).id;
         }
     }
 }
