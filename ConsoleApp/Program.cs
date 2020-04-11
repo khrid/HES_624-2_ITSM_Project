@@ -11,7 +11,7 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             PrintPaymentServiceReference.PrintPaymentServiceClient client = new PrintPaymentServiceReference.PrintPaymentServiceClient();
-            Console.WriteLine(""+client.SayHello());
+            Console.WriteLine(client.SayHello(2));
             Console.ReadLine();
         }
     }

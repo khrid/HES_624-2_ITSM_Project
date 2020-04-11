@@ -12,6 +12,6 @@ namespace WcfService
     public interface IPrintPaymentService
     {
         [OperationContract]
-        string SayHello();
+        string SayHello(int id);
     }
 }

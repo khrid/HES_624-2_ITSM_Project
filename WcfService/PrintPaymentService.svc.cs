@@ -1,9 +1,14 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using DTO;
+using System.Configuration;
 
 namespace WcfService
 {
@@ -11,9 +16,13 @@ namespace WcfService
     // NOTE: In order to launch WCF Test Client for testing this service, please select PrintPaymentService.svc or PrintPaymentService.svc.cs at the Solution Explorer and start debugging.
     public class PrintPaymentService : IPrintPaymentService
     {
-        public string SayHello()
+        public static string connectionString { get; } = ConfigurationManager.ConnectionStrings["dbProject"].ConnectionString;
+
+        public string SayHello(int id)
         {
-            return "Hello";
+            StudentsManager studentsManager = new StudentsManager(connectionString);
+            Student student = studentsManager.GetStudent(id);
+            return "Hello " + student.lastname;
         }
     }
 }

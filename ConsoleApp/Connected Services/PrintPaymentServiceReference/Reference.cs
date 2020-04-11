@@ -16,10 +16,10 @@ namespace ConsoleApp.PrintPaymentServiceReference {
     public interface IPrintPaymentService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/SayHello", ReplyAction="http://tempuri.org/IPrintPaymentService/SayHelloResponse")]
-        string SayHello();
+        string SayHello(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/SayHello", ReplyAction="http://tempuri.org/IPrintPaymentService/SayHelloResponse")]
-        System.Threading.Tasks.Task<string> SayHelloAsync();
+        System.Threading.Tasks.Task<string> SayHelloAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +49,12 @@ namespace ConsoleApp.PrintPaymentServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public string SayHello() {
-            return base.Channel.SayHello();
+        public string SayHello(int id) {
+            return base.Channel.SayHello(id);
         }
         
-        public System.Threading.Tasks.Task<string> SayHelloAsync() {
-            return base.Channel.SayHelloAsync();
+        public System.Threading.Tasks.Task<string> SayHelloAsync(int id) {
+            return base.Channel.SayHelloAsync(id);
         }
     }
 }
