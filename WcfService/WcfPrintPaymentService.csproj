@@ -110,10 +110,6 @@
       <Project>{ebf71310-3157-41dd-a15f-73d26623b13a}</Project>
       <Name>BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DTO\DTO.csproj">
-      <Project>{ce7a2291-f1d9-41d6-8fb1-c8bc86673749}</Project>
-      <Name>DTO</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
