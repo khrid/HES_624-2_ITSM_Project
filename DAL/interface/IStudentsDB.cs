@@ -13,5 +13,6 @@ namespace DAL
         Student GetStudentById(int id);
         List<Student> GetStudentsByUId(int uid);
         List<Student> GetStudentsByCardId(int cardid);
+        List<Student> GetStudentsByUsername(string username);
     }
 }

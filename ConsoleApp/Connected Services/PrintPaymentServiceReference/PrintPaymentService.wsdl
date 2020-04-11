@@ -6,42 +6,52 @@
       <xsd:import schemaLocation="http://localhost:54034/PrintPaymentService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IPrintPaymentService_AddTransactionByStudentId_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddTransactionByStudentId" />
+  <wsdl:message name="IPrintPaymentService_TransactionPayOnline_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionPayOnline" />
   </wsdl:message>
-  <wsdl:message name="IPrintPaymentService_AddTransactionByStudentId_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddTransactionByStudentIdResponse" />
+  <wsdl:message name="IPrintPaymentService_TransactionPayOnline_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionPayOnlineResponse" />
   </wsdl:message>
-  <wsdl:message name="IPrintPaymentService_AddTransactionByStudentUId_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddTransactionByStudentUId" />
+  <wsdl:message name="IPrintPaymentService_TransactionAddQuotasPrintSystem_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionAddQuotasPrintSystem" />
   </wsdl:message>
-  <wsdl:message name="IPrintPaymentService_AddTransactionByStudentUId_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddTransactionByStudentUIdResponse" />
+  <wsdl:message name="IPrintPaymentService_TransactionAddQuotasPrintSystem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionAddQuotasPrintSystemResponse" />
   </wsdl:message>
-  <wsdl:message name="IPrintPaymentService_AddTransactionByStudentCardId_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddTransactionByStudentCardId" />
+  <wsdl:message name="IPrintPaymentService_TransactionFaculties_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionFaculties" />
   </wsdl:message>
-  <wsdl:message name="IPrintPaymentService_AddTransactionByStudentCardId_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddTransactionByStudentCardIdResponse" />
+  <wsdl:message name="IPrintPaymentService_TransactionFaculties_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionFacultiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintPaymentService_TransactionPointOfSale_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionPointOfSale" />
+  </wsdl:message>
+  <wsdl:message name="IPrintPaymentService_TransactionPointOfSale_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionPointOfSaleResponse" />
   </wsdl:message>
   <wsdl:portType name="IPrintPaymentService">
-    <wsdl:operation name="AddTransactionByStudentId">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentId" message="tns:IPrintPaymentService_AddTransactionByStudentId_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentIdResponse" message="tns:IPrintPaymentService_AddTransactionByStudentId_OutputMessage" />
+    <wsdl:operation name="TransactionPayOnline">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintPaymentService/TransactionPayOnline" message="tns:IPrintPaymentService_TransactionPayOnline_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintPaymentService/TransactionPayOnlineResponse" message="tns:IPrintPaymentService_TransactionPayOnline_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddTransactionByStudentUId">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentUId" message="tns:IPrintPaymentService_AddTransactionByStudentUId_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentUIdResponse" message="tns:IPrintPaymentService_AddTransactionByStudentUId_OutputMessage" />
+    <wsdl:operation name="TransactionAddQuotasPrintSystem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintPaymentService/TransactionAddQuotasPrintSystem" message="tns:IPrintPaymentService_TransactionAddQuotasPrintSystem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintPaymentService/TransactionAddQuotasPrintSystemResponse" message="tns:IPrintPaymentService_TransactionAddQuotasPrintSystem_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddTransactionByStudentCardId">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentCardId" message="tns:IPrintPaymentService_AddTransactionByStudentCardId_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentCardIdResponse" message="tns:IPrintPaymentService_AddTransactionByStudentCardId_OutputMessage" />
+    <wsdl:operation name="TransactionFaculties">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintPaymentService/TransactionFaculties" message="tns:IPrintPaymentService_TransactionFaculties_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintPaymentService/TransactionFacultiesResponse" message="tns:IPrintPaymentService_TransactionFaculties_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionPointOfSale">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintPaymentService/TransactionPointOfSale" message="tns:IPrintPaymentService_TransactionPointOfSale_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintPaymentService/TransactionPointOfSaleResponse" message="tns:IPrintPaymentService_TransactionPointOfSale_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPrintPaymentService" type="tns:IPrintPaymentService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="AddTransactionByStudentId">
-      <soap:operation soapAction="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentId" style="document" />
+    <wsdl:operation name="TransactionPayOnline">
+      <soap:operation soapAction="http://tempuri.org/IPrintPaymentService/TransactionPayOnline" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -49,8 +59,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddTransactionByStudentUId">
-      <soap:operation soapAction="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentUId" style="document" />
+    <wsdl:operation name="TransactionAddQuotasPrintSystem">
+      <soap:operation soapAction="http://tempuri.org/IPrintPaymentService/TransactionAddQuotasPrintSystem" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -58,8 +68,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddTransactionByStudentCardId">
-      <soap:operation soapAction="http://tempuri.org/IPrintPaymentService/AddTransactionByStudentCardId" style="document" />
+    <wsdl:operation name="TransactionFaculties">
+      <soap:operation soapAction="http://tempuri.org/IPrintPaymentService/TransactionFaculties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionPointOfSale">
+      <soap:operation soapAction="http://tempuri.org/IPrintPaymentService/TransactionPointOfSale" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
