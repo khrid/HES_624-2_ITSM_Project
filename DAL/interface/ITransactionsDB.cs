@@ -10,5 +10,6 @@ namespace DAL
     public interface ITransactionsDB
 {
         Transaction AddTransaction(Transaction transaction);
+        double GetBalanceByStudentId(int studentId);
 }
 }

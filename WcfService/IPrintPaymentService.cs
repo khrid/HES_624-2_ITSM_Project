@@ -25,18 +25,25 @@ namespace WcfService
 
         // Flèche bleue - "PayOnline // Transfer amount of money"
         [OperationContract]
-        int TransactionPayOnline(string username, double amount); // TODO à clarifier si c'est OK avec dul, car pas précisé dans le schéma
+        bool TransactionPayOnline(string username, double amount); // TODO à clarifier si c'est OK avec dul, car pas précisé dans le schéma
 
         // Flèche bleue - "Print System // Add quotas (nb A4) through command line"
         [OperationContract]
-        int TransactionAddQuotasPrintSystem(string username, int quota);
+        bool TransactionAddQuotasPrintSystem(string username, int quota);
 
         // Flèche verte - "Faculties // Transfer amount on money"
         [OperationContract]
-        int TransactionFaculties(string username, double amount);
+        bool TransactionFaculties(string username, double amount);
 
         // Flèche rouge - "Payment database // Transfer amount of money through Connector after POS transaction"
         [OperationContract]
-        int TransactionPointOfSale(int uid, double amount);
+        bool TransactionPointOfSale(int uid, double amount);
+
+        [OperationContract]
+        double GetBalanceByUsername(string username);
+
+        [OperationContract]
+        double GetBalanceByUId(int uid);
+
     }
 }

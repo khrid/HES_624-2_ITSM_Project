@@ -45,6 +45,39 @@ namespace DAL
             return transaction;
         }
 
+        public double GetBalanceByStudentId(int studentId)
+        {
+
+            double result = 0;
+
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(connectionString))
+                {
+                    string query = "SELECT SUM(amount) AS balance FROM Transactions WHERE fk_student=@fk_student";
+                    SqlCommand cmd = new SqlCommand(query, cn);
+                    cmd.Parameters.AddWithValue("@fk_student", studentId);
+                    
+                    cn.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            if (dr["balance"] != DBNull.Value)
+                                result = (double)((decimal)dr["balance"]); // double conversion à éviter (obliger car les données sont de type decimal dans la DB et de type double dans le webservice) 
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return result;
+        }
+
     }
     
 }

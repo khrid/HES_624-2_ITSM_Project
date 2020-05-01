@@ -16,28 +16,40 @@ namespace ConsoleApp.PrintPaymentServiceReference {
     public interface IPrintPaymentService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/TransactionPayOnline", ReplyAction="http://tempuri.org/IPrintPaymentService/TransactionPayOnlineResponse")]
-        int TransactionPayOnline(string username, double amount);
+        bool TransactionPayOnline(string username, double amount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/TransactionPayOnline", ReplyAction="http://tempuri.org/IPrintPaymentService/TransactionPayOnlineResponse")]
-        System.Threading.Tasks.Task<int> TransactionPayOnlineAsync(string username, double amount);
+        System.Threading.Tasks.Task<bool> TransactionPayOnlineAsync(string username, double amount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/TransactionAddQuotasPrintSystem", ReplyAction="http://tempuri.org/IPrintPaymentService/TransactionAddQuotasPrintSystemResponse")]
-        int TransactionAddQuotasPrintSystem(string username, int quota);
+        bool TransactionAddQuotasPrintSystem(string username, int quota);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/TransactionAddQuotasPrintSystem", ReplyAction="http://tempuri.org/IPrintPaymentService/TransactionAddQuotasPrintSystemResponse")]
-        System.Threading.Tasks.Task<int> TransactionAddQuotasPrintSystemAsync(string username, int quota);
+        System.Threading.Tasks.Task<bool> TransactionAddQuotasPrintSystemAsync(string username, int quota);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/TransactionFaculties", ReplyAction="http://tempuri.org/IPrintPaymentService/TransactionFacultiesResponse")]
-        int TransactionFaculties(string username, double amount);
+        bool TransactionFaculties(string username, double amount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/TransactionFaculties", ReplyAction="http://tempuri.org/IPrintPaymentService/TransactionFacultiesResponse")]
-        System.Threading.Tasks.Task<int> TransactionFacultiesAsync(string username, double amount);
+        System.Threading.Tasks.Task<bool> TransactionFacultiesAsync(string username, double amount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/TransactionPointOfSale", ReplyAction="http://tempuri.org/IPrintPaymentService/TransactionPointOfSaleResponse")]
-        int TransactionPointOfSale(int uid, double amount);
+        bool TransactionPointOfSale(int uid, double amount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/TransactionPointOfSale", ReplyAction="http://tempuri.org/IPrintPaymentService/TransactionPointOfSaleResponse")]
-        System.Threading.Tasks.Task<int> TransactionPointOfSaleAsync(int uid, double amount);
+        System.Threading.Tasks.Task<bool> TransactionPointOfSaleAsync(int uid, double amount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/GetBalanceByUsername", ReplyAction="http://tempuri.org/IPrintPaymentService/GetBalanceByUsernameResponse")]
+        double GetBalanceByUsername(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/GetBalanceByUsername", ReplyAction="http://tempuri.org/IPrintPaymentService/GetBalanceByUsernameResponse")]
+        System.Threading.Tasks.Task<double> GetBalanceByUsernameAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/GetBalanceByUId", ReplyAction="http://tempuri.org/IPrintPaymentService/GetBalanceByUIdResponse")]
+        double GetBalanceByUId(int uid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrintPaymentService/GetBalanceByUId", ReplyAction="http://tempuri.org/IPrintPaymentService/GetBalanceByUIdResponse")]
+        System.Threading.Tasks.Task<double> GetBalanceByUIdAsync(int uid);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -67,36 +79,52 @@ namespace ConsoleApp.PrintPaymentServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public int TransactionPayOnline(string username, double amount) {
+        public bool TransactionPayOnline(string username, double amount) {
             return base.Channel.TransactionPayOnline(username, amount);
         }
         
-        public System.Threading.Tasks.Task<int> TransactionPayOnlineAsync(string username, double amount) {
+        public System.Threading.Tasks.Task<bool> TransactionPayOnlineAsync(string username, double amount) {
             return base.Channel.TransactionPayOnlineAsync(username, amount);
         }
         
-        public int TransactionAddQuotasPrintSystem(string username, int quota) {
+        public bool TransactionAddQuotasPrintSystem(string username, int quota) {
             return base.Channel.TransactionAddQuotasPrintSystem(username, quota);
         }
         
-        public System.Threading.Tasks.Task<int> TransactionAddQuotasPrintSystemAsync(string username, int quota) {
+        public System.Threading.Tasks.Task<bool> TransactionAddQuotasPrintSystemAsync(string username, int quota) {
             return base.Channel.TransactionAddQuotasPrintSystemAsync(username, quota);
         }
         
-        public int TransactionFaculties(string username, double amount) {
+        public bool TransactionFaculties(string username, double amount) {
             return base.Channel.TransactionFaculties(username, amount);
         }
         
-        public System.Threading.Tasks.Task<int> TransactionFacultiesAsync(string username, double amount) {
+        public System.Threading.Tasks.Task<bool> TransactionFacultiesAsync(string username, double amount) {
             return base.Channel.TransactionFacultiesAsync(username, amount);
         }
         
-        public int TransactionPointOfSale(int uid, double amount) {
+        public bool TransactionPointOfSale(int uid, double amount) {
             return base.Channel.TransactionPointOfSale(uid, amount);
         }
         
-        public System.Threading.Tasks.Task<int> TransactionPointOfSaleAsync(int uid, double amount) {
+        public System.Threading.Tasks.Task<bool> TransactionPointOfSaleAsync(int uid, double amount) {
             return base.Channel.TransactionPointOfSaleAsync(uid, amount);
+        }
+        
+        public double GetBalanceByUsername(string username) {
+            return base.Channel.GetBalanceByUsername(username);
+        }
+        
+        public System.Threading.Tasks.Task<double> GetBalanceByUsernameAsync(string username) {
+            return base.Channel.GetBalanceByUsernameAsync(username);
+        }
+        
+        public double GetBalanceByUId(int uid) {
+            return base.Channel.GetBalanceByUId(uid);
+        }
+        
+        public System.Threading.Tasks.Task<double> GetBalanceByUIdAsync(int uid) {
+            return base.Channel.GetBalanceByUIdAsync(uid);
         }
     }
 }

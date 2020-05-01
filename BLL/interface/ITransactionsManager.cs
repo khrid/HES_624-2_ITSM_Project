@@ -19,5 +19,13 @@ namespace BLL
 
         int AddQuotaByUsername(string username, string source, int quota);
 
+        double GetBalanceByStudentId(int id);
+
+        double GetBalanceByStudentUId(int uid);
+
+        double GetBalanceByStudentCardId(int cardid);
+
+        double GetBalanceByStudentUsername(string username);
+
     }
 }

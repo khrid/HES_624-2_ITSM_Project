@@ -30,6 +30,18 @@
   <wsdl:message name="IPrintPaymentService_TransactionPointOfSale_OutputMessage">
     <wsdl:part name="parameters" element="tns:TransactionPointOfSaleResponse" />
   </wsdl:message>
+  <wsdl:message name="IPrintPaymentService_GetBalanceByUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBalanceByUsername" />
+  </wsdl:message>
+  <wsdl:message name="IPrintPaymentService_GetBalanceByUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBalanceByUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintPaymentService_GetBalanceByUId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBalanceByUId" />
+  </wsdl:message>
+  <wsdl:message name="IPrintPaymentService_GetBalanceByUId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBalanceByUIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPrintPaymentService">
     <wsdl:operation name="TransactionPayOnline">
       <wsdl:input wsaw:Action="http://tempuri.org/IPrintPaymentService/TransactionPayOnline" message="tns:IPrintPaymentService_TransactionPayOnline_InputMessage" />
@@ -46,6 +58,14 @@
     <wsdl:operation name="TransactionPointOfSale">
       <wsdl:input wsaw:Action="http://tempuri.org/IPrintPaymentService/TransactionPointOfSale" message="tns:IPrintPaymentService_TransactionPointOfSale_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPrintPaymentService/TransactionPointOfSaleResponse" message="tns:IPrintPaymentService_TransactionPointOfSale_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceByUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintPaymentService/GetBalanceByUsername" message="tns:IPrintPaymentService_GetBalanceByUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintPaymentService/GetBalanceByUsernameResponse" message="tns:IPrintPaymentService_GetBalanceByUsername_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceByUId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintPaymentService/GetBalanceByUId" message="tns:IPrintPaymentService_GetBalanceByUId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintPaymentService/GetBalanceByUIdResponse" message="tns:IPrintPaymentService_GetBalanceByUId_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPrintPaymentService" type="tns:IPrintPaymentService">
@@ -79,6 +99,24 @@
     </wsdl:operation>
     <wsdl:operation name="TransactionPointOfSale">
       <soap:operation soapAction="http://tempuri.org/IPrintPaymentService/TransactionPointOfSale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceByUsername">
+      <soap:operation soapAction="http://tempuri.org/IPrintPaymentService/GetBalanceByUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceByUId">
+      <soap:operation soapAction="http://tempuri.org/IPrintPaymentService/GetBalanceByUId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

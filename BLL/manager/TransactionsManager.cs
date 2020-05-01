@@ -89,5 +89,52 @@ namespace BLL
             }
             return TransactionsDB.AddTransaction(CreateTransactionByStudentId(studentId, source, quota * PRICE_PER_PAGE_BW)).id;
         }
+
+        public double GetBalanceByStudentId(int id)
+        {
+            return TransactionsDB.GetBalanceByStudentId(id);
+        }
+
+        public double GetBalanceByStudentUId(int uid)
+        {
+            int studentId;
+            try
+            {
+                studentId = StudentsManager.GetStudentIdByUId(uid);
+            }
+            catch (ApplicationException ex)
+            {
+                return -1;
+            }
+            return TransactionsDB.GetBalanceByStudentId(studentId);
+        }
+
+        public double GetBalanceByStudentCardId(int cardid)
+        {
+            int studentId;
+            try
+            {
+                studentId = StudentsManager.GetStudentIdByCardId(cardid);
+            }
+            catch (ApplicationException ex)
+            {
+                return -1;
+            }
+            return TransactionsDB.GetBalanceByStudentId(studentId);
+        }
+
+        public double GetBalanceByStudentUsername(string username)
+        {
+            int studentId;
+            try
+            {
+                studentId = StudentsManager.GetStudentByUsername(username);
+            }
+            catch (ApplicationException ex)
+            {
+                return -1;
+            }
+            return TransactionsDB.GetBalanceByStudentId(studentId);
+        }
     }
 }

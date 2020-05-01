@@ -34,24 +34,34 @@ namespace WcfService
             return TransactionsManager.AddTransactionByStudentCardId(cardid, source, amount).id;
         }*/
 
-        public int TransactionPayOnline(string username, double amount)
+        public bool TransactionPayOnline(string username, double amount)
         {
-            return TransactionsManager.AddTransactionByUsername(username, "PayOnline", amount);
+            return TransactionsManager.AddTransactionByUsername(username, "PayOnline", amount) !=-1;
         }
 
-        public int TransactionAddQuotasPrintSystem(string username, int quota)
+        public bool TransactionAddQuotasPrintSystem(string username, int quota)
         {
-            return TransactionsManager.AddQuotaByUsername(username, "PrintSystem", quota);
+            return TransactionsManager.AddQuotaByUsername(username, "PrintSystem", quota) != -1;
         }
 
-        public int TransactionFaculties(string username, double amount)
+        public bool TransactionFaculties(string username, double amount)
         {
-            return TransactionsManager.AddTransactionByUsername(username, "Faculties", amount);
+            return TransactionsManager.AddTransactionByUsername(username, "Faculties", amount) != -1;
         }
 
-        public int TransactionPointOfSale(int uid, double amount)
+        public bool TransactionPointOfSale(int uid, double amount)
         {
-            return TransactionsManager.AddTransactionByStudentUId(uid, "PointOfSale", amount);
+            return TransactionsManager.AddTransactionByStudentUId(uid, "PointOfSale", amount) != -1;
+        }
+
+        public double GetBalanceByUsername(string username)
+        {
+            return TransactionsManager.GetBalanceByStudentUsername(username);
+        }
+
+        public double GetBalanceByUId(int uid)
+        {
+            return TransactionsManager.GetBalanceByStudentUId(uid);
         }
     }
 }
