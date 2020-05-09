@@ -82,7 +82,7 @@ namespace ConsoleApp
             Console.ReadLine();
             Console.WriteLine("Current balance -> " + client.GetBalanceByUsername("alain.duc"));
             Console.ReadLine();
-            Console.WriteLine("Trying to add 10.- CHF to student identified by username alain.duc ...");
+            Console.WriteLine("Trying to add 10 pages to student's quota identified by username alain.duc ...");
             Console.ReadLine();
             Console.WriteLine("Transaction successfully done -> " + client.TransactionAddQuotasPrintSystem("alain.duc", 10));
             Console.ReadLine();
@@ -161,7 +161,7 @@ namespace ConsoleApp
             Console.ReadLine();
             Console.WriteLine("Current balance -> " + client.GetBalanceByUsername("anne.lecalve"));
             Console.ReadLine();
-            Console.WriteLine("Trying to add 10.- CHF to student identified by username anne.lecalve ...");
+            Console.WriteLine("Trying to add 10 pages to student's quota identified by username anne.lecalve ...");
             Console.ReadLine();
             Console.WriteLine("Transaction successfully done -> " + client.TransactionAddQuotasPrintSystem("anne.lecalve", 10));
             Console.ReadLine();
